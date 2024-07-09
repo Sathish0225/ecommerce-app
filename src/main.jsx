@@ -27,6 +27,8 @@ import About from './about/About.jsx';
 import Contact from './contact/Contact.jsx';
 import SingleProduct from './shop/SingleProduct.jsx';
 import CartPage from './shop/CartPage.jsx';
+import Login from './login/Login.jsx';
+import SignUp from './signup/SignUp.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,8 @@ const router = createBrowserRouter([
       { path: "/blog", element: <Blog /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
+      { path: "/login", element: <Login /> },
+      { path: "/sign-up", element: <SignUp /> },
     ]
   },
 ]);
