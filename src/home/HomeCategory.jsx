@@ -72,7 +72,7 @@ const HomeCategory = () => {
                                                 <div className='cate-icon'>
                                                     <i className={category.iconName}></i>
                                                 </div>
-                                                <Link to="/shop"><h6>{category.title}</h6></Link>
+                                                <h6>{category.title}</h6>
                                             </div>
                                         </div>
                                     </Link>
