@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SelectedCategory = (select) => {
+const SelectedCategory = ({ select, handleChange }) => {
     return (
-        <select>
+        <select value={select} onChange={handleChange}>
             <option value="all">All Categories</option>
             <option value="electronics">Electronics</option>
             <option value="computer">Computer</option>

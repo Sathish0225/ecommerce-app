@@ -25,6 +25,7 @@ const bannerList = [
 
 const Banner = () => {
     const [searchInput, setSearchInput] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("all");
     const [filteredProducts, setFilteredProducts] = useState(productData);
 
     // SearchInput Function
@@ -33,10 +34,17 @@ const Banner = () => {
         setSearchInput(searchItem);
 
         // filtering products based on search
-        const filtered = productData.filter((product) => product.name.toLowerCase().includes(searchInput.toLowerCase()));
+        const filtered = productData.filter((product) =>
+            product.name.toLowerCase().includes(searchInput.toLowerCase()) &&
+            (selectedCategory.toLowerCase() === 'all' || product.category.toLowerCase() === selectedCategory.toLowerCase())
+        );
         setFilteredProducts(filtered);
     };
 
+    const handleCategoryChange = (e) => {
+        setSearchInput("");
+        setSelectedCategory(e.target.value);
+    }
 
     return (
         <div className='banner-section style-4'>
@@ -44,7 +52,7 @@ const Banner = () => {
                 <div className="banner-content">
                     {title}
                     <form>
-                        <SelectedCategory select={"all"} />
+                        <SelectedCategory select={selectedCategory} handleChange={handleCategoryChange} />
                         <input type="text" name="search" id="search" placeholder='Search your product' value={searchInput} onChange={handleSearch} />
                         <button type='submit'><i className='icofont-search'></i></button>
                     </form>
